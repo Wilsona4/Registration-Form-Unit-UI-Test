@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Decagon Android 007</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="phone_number_ngn">Phone Number (NGN)</string>
+    <string name="sex">Sex</string>
+    <string name="phone_number">Number</string>
+    <string name="email_">Email:</string>
+    <string name="name">Name:</string>
+    <string name="profile_picture">Profile Picture</string>
 </resources>
