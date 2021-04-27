@@ -19,31 +19,25 @@ class ToastTest {
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
     }
 
-    private val fistName = "John"
-    private val email = "johndoe@gmail.com"
-    private val phone = "+2348154478844"
-    private val sex = "Male"
-    private val message = "All Fields are Required"
-
     /*Test if Toast is Displayed and Correct Message is Displayed*/
     @Test
     fun testToastDisplayed_toastMessage() {
         /*Input Data whilst omitting Last Name*/
-        onView(withId(R.id.firstName)).perform(replaceText(fistName))
+        onView(withId(R.id.firstName)).perform(replaceText(MainActivityTest.FIRST_NAME))
         closeSoftKeyboard()
-        onView(withId(R.id.emailAddress)).perform(replaceText(email))
+        onView(withId(R.id.emailAddress)).perform(replaceText(MainActivityTest.EMAIL))
         closeSoftKeyboard()
-        onView(withId(R.id.phoneNumber)).perform(replaceText(phone))
+        onView(withId(R.id.phoneNumber)).perform(replaceText(MainActivityTest.PHONE))
         closeSoftKeyboard()
         Thread.sleep(250)
         /*Select Spinner Item*/
         onView(withId(R.id.spinner)).perform(click())
-        onView(withText(sex)).perform(click());
+        onView(withText(MainActivityTest.SEX)).perform(click());
         /*Click Register Button*/
         onView(withId(R.id.btRegister)).perform(swipeUp(), click())
 
         /*Check if the toast displayed and the is message correct*/
-        onView(withText(message)).inRoot(ToastMatcher()).check(matches(isDisplayed()))
+        onView(withText(MainActivityTest.MESSAGE)).inRoot(ToastMatcher()).check(matches(isDisplayed()))
 
     }
 }

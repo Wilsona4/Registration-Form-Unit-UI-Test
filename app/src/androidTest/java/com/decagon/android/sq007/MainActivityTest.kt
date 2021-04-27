@@ -14,11 +14,15 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4ClassRunner::class)
 class MainActivityTest {
-    private val fistName = "John"
-    private val lastName = "Doe"
-    private val email = "johndoe@gmail.com"
-    private val phone = "+2348154478844"
-    private val sex = "Male"
+
+    companion object {
+        const val FIRST_NAME = "John"
+        const val LAST_NAME = "Doe"
+        const val EMAIL = "johndoe@gmail.com"
+        const val PHONE = "+2348154478844"
+        const val SEX = "Male"
+        const val MESSAGE = "All Fields are Required"
+    }
 
     @get:Rule
     val activityRule: ActivityScenarioRule<MainActivity> =
@@ -54,18 +58,18 @@ class MainActivityTest {
     @Test
     fun testNavigationToProfileActivity() {
         /*Input Data*/
-        onView(withId(R.id.firstName)).perform(replaceText(fistName))
+        onView(withId(R.id.firstName)).perform(replaceText(FIRST_NAME))
         closeSoftKeyboard()
-        onView(withId(R.id.lastName)).perform(replaceText(lastName))
+        onView(withId(R.id.lastName)).perform(replaceText(LAST_NAME))
         closeSoftKeyboard()
-        onView(withId(R.id.emailAddress)).perform(replaceText(email))
+        onView(withId(R.id.emailAddress)).perform(replaceText(EMAIL))
         closeSoftKeyboard()
-        onView(withId(R.id.phoneNumber)).perform(replaceText(phone))
+        onView(withId(R.id.phoneNumber)).perform(replaceText(PHONE))
         closeSoftKeyboard()
         Thread.sleep(250)
         /*Select Spinner Item*/
         onView(withId(R.id.spinner)).perform(click())
-        onView(withText(sex)).perform(click());
+        onView(withText(SEX)).perform(click());
         /*Click Register Button*/
         onView(withId(R.id.btRegister)).perform(swipeUp(), click())
         /*Check if Profile Activity is Displayed*/
@@ -76,18 +80,18 @@ class MainActivityTest {
     @Test
     fun testNavigationFromProfileActivity_BackPressedToMainActivity() {
         /*Input Data*/
-        onView(withId(R.id.firstName)).perform(replaceText(fistName))
+        onView(withId(R.id.firstName)).perform(replaceText(FIRST_NAME))
         closeSoftKeyboard()
-        onView(withId(R.id.lastName)).perform(replaceText(lastName))
+        onView(withId(R.id.lastName)).perform(replaceText(LAST_NAME))
         closeSoftKeyboard()
-        onView(withId(R.id.emailAddress)).perform(replaceText(email))
+        onView(withId(R.id.emailAddress)).perform(replaceText(EMAIL))
         closeSoftKeyboard()
-        onView(withId(R.id.phoneNumber)).perform(replaceText(phone))
+        onView(withId(R.id.phoneNumber)).perform(replaceText(PHONE))
         closeSoftKeyboard()
         Thread.sleep(250)
         /*Select Spinner Item*/
         onView(withId(R.id.spinner)).perform(click())
-        onView(withText(sex)).perform(click());
+        onView(withText(SEX)).perform(click());
         /*Click Register Button*/
         onView(withId(R.id.btRegister)).perform(swipeUp(), click())
         /*Check if Profile Activity is Displayed*/
@@ -101,23 +105,23 @@ class MainActivityTest {
     @Test
     fun testMainActivityDataSent_vsProfileActivityDataDisplayed() {
         /*Input Data*/
-        onView(withId(R.id.firstName)).perform(replaceText(fistName))
+        onView(withId(R.id.firstName)).perform(replaceText(FIRST_NAME))
         closeSoftKeyboard()
-        onView(withId(R.id.lastName)).perform(replaceText(lastName))
+        onView(withId(R.id.lastName)).perform(replaceText(LAST_NAME))
         closeSoftKeyboard()
-        onView(withId(R.id.emailAddress)).perform(replaceText(email))
+        onView(withId(R.id.emailAddress)).perform(replaceText(EMAIL))
         closeSoftKeyboard()
-        onView(withId(R.id.phoneNumber)).perform(replaceText(phone))
+        onView(withId(R.id.phoneNumber)).perform(replaceText(PHONE))
         closeSoftKeyboard()
         Thread.sleep(250)
         /*Select Spinner Item*/
         onView(withId(R.id.spinner)).perform(click())
-        onView(withText(sex)).perform(click());
+        onView(withText(SEX)).perform(click());
         /*Click Register Button*/
         onView(withId(R.id.btRegister)).perform(swipeUp(), click())
         /*Check if Profile Activity is Displayed*/
         onView(withId(R.id.activity_profile)).check(matches(isDisplayed()))
         /*Check if Data Sent from Main Activity matches Data Displayed in Profile*/
-        onView(withId(R.id.tvEmail)).check(matches(withText(email)))
+        onView(withId(R.id.tvEmail)).check(matches(withText(EMAIL)))
     }
 }

@@ -17,42 +17,42 @@ class ValidateRegistrationTest : TestCase() {
 
     /*Test Validate Email Function with Correct Mail*/
     @Test
-    fun testValidateEmail_isTrue() {
+    fun test_validateEmail_isTrue() {
         val result = ValidateRegistration.validateEmail(emailTrue)
         assertTrue(result)
     }
 
     /*Test Validate Email Function with Wrong Email*/
     @Test
-    fun testValidateEmail_isFalse() {
+    fun test_validateEmail_isFalse() {
         val result = ValidateRegistration.validateEmail(emailFalse)
         assertFalse(result)
     }
 
     /*Test Validate Phone Number Function with a Correct Number*/
     @Test
-    fun testValidatePhoneNumber_isTrue() {
+    fun test_validatePhoneNumber_isTrue() {
         val result = ValidateRegistration.validatePhoneNumber(numberTrue)
         assertTrue(result)
     }
 
     /*Test Validate Phone Number Function with a Wrong Number*/
     @Test
-    fun testValidatePhoneNumber_isFalse() {
+    fun test_validatePhoneNumber_isFalse() {
         val result = ValidateRegistration.validatePhoneNumber(numberFalse)
         assertFalse(result)
     }
 
     /*Test Validate Gender Function with a Correct Gender*/
     @Test
-    fun testValidateGender_isTrue() {
+    fun test_validateGender_isTrue() {
         val result = ValidateRegistration.validateGender(genderTrue)
         assertTrue(result)
     }
 
     /*Test Validate Gender Function with a Wrong Gender*/
     @Test
-    fun testValidateGender_isFalse() {
+    fun test_validateGender_isFalse() {
         val result = ValidateRegistration.validateGender(genderFalse)
         assertFalse(result)
     }
